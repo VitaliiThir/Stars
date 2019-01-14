@@ -1,0 +1,221 @@
+@import 'plug/rem';
+@import 'plug/variables';
+@import 'plug/media-queries';
+@import 'plug/mixins';
+@import 'plug/popup';
+@import '../../node_modules/rfs/scss/rfs';
+
+/* Global styles start*/
+* {
+	outline: none;
+}
+html,
+body {
+	height: 100%;
+}
+ul, ol, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+button {
+	border: none;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	&[type="button"], &[type="submit"] {
+		&:focus {
+			outline: none;
+		}
+	}
+}
+a {
+	color: inherit;
+}
+input[type='number'] {
+	-moz-appearance: textfield;
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}
+input, textarea {
+	&:focus {
+		outline: none;
+	}
+}
+textarea {
+	resize: none;
+}
+svg {
+	width: 100%;
+	stroke-width: 0;
+	stroke: currentColor;
+	fill: inherit;
+	pointer-events: none;
+}
+.squeeze-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.squeeze-content {
+	flex: 1 0 auto;
+}
+.squeeze-footer {
+	flex: 0 0 auto;
+}
+::selection {
+  background: rgba(#008ca9, .4);
+  color: #fff;
+}
+/* Preloader */
+.preloader {
+	position: fixed;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	bottom: 0;
+	background: #000;
+	z-index: 100000;
+	&-item {
+		&-gif {
+			height: 250px;
+			width: 250px;
+			background-image: url('../img/preloader.gif');
+			@include background();
+			@include mx-auto;
+		}
+		&-text {
+			text-align: center;
+			p {
+				font-size: 18px;
+				color: #fff;
+				line-height: 1em;
+				text-shadow: 1px 1px 10px rgba(#fff, .7);
+			}
+		}
+	}
+}
+/*END Preloader */
+/* Global styles end*/
+
+/* Это можно удалить перед началом работы */
+body {
+	background-color: #006d84;
+}
+.temporary-content {
+	padding-top: 280px;
+	font-size: 26px;
+	font-style: normal;
+	color: #bff5ff;
+	h3 {
+		position: relative;
+		color: #00d3f7;
+		font-style: inherit;
+		@include rfs(28);
+		font-weight: 500;
+		line-height: 1em;
+		padding-top: 30px;
+		text-shadow: -1px 2px 10px rgba(#000, .8);
+		@keyframes logoRotate_2 {
+			0%{transform: rotate(0);}
+			100%{transform: rotate(-360deg);}
+		}
+		&::before {
+			position: absolute;
+			z-index: 0;
+			content: "";
+			bottom: 100%;
+			left: 50%;
+			margin-left: -150px;
+			width: 300px;
+			height: 180px;
+			border: 1px dashed #fff;
+			box-shadow: -15px 15px 35px 0 rgba(#000, .2);
+			background-image: url('../img/web.gif');
+			@include background();
+		}
+	}
+	p {
+		text-shadow: -1px 2px 10px rgba(#000, .8);
+		word-wrap: break-word;
+		font-style: inherit;
+		line-height: 1.5em;
+	}
+}
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #000;
+	@include rfs(32);
+	height: 2em;
+	font-weight: 700;
+	text-align: center;
+	background-color: #008ca9;
+	box-shadow: 0 -25px 150px 0 rgba(#000, .3);
+	p {
+		color: #003040;
+		font-size: inherit;
+		font-weight: 500;
+		line-height: 1em;
+		text-shadow: -8px 8px 8px rgba(#000, .3);
+	}
+}
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@include rfs(32);
+	height: 2em;
+	border: 1px solid #000;
+	font-weight: 700;
+	text-align: center;
+	background-color: #008ca9;
+	box-shadow: 0 25px 150px 0 rgba(#000, .3);
+	p {
+		color: #003040;
+		font-size: inherit;
+		font-weight: 500;
+		line-height: 1em;
+		text-shadow: -8px 8px 8px rgba(#000, .3);
+	}
+}
+
+.block {
+	text-align: center;
+	color: #38474b;
+	max-width: 400px;
+	background-color: #fff;
+	padding: 15px;
+}
+button {
+	display: block;
+	text-align: center;
+	border: 1px solid #00323d;
+	padding: 3px 15px;
+	color: #c2e1ff;
+	line-height: 1em;
+	font-size: 22px;
+	line-height: 1em;
+	cursor: pointer;
+	margin-top: 40px;
+	text-shadow: -1px 2px 5px rgba(#000, .8);
+	@include mx-auto;
+	transition: all .2s linear;
+	background-color: #00bbd9;
+	box-shadow: -5px 5px 10px 0 rgba(#000, .2);
+	&:hover {
+		background-color: lighten(#00bbd9, 5%);
+	}
+	&:active {
+		box-shadow: none;
+	}
+}
+/*END Это можно удалить перед началом работы */

@@ -1,0 +1,45 @@
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(#000, .8);
+  justify-content: center;
+  align-items: center;
+  &-item {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  &-close {
+    position: absolute;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 5px;
+    top: 0;
+    cursor: pointer;
+    color: #000;
+    font-size: 26px;
+    transform: rotate(45deg);
+    transition: color .2s linear;
+    &:hover {
+      color: #777;
+    }
+    span {
+      display: block;
+      line-height: 1em;
+      color: inherit;
+    }
+  }
+}
+.my-modal {
+  position: relative;
+  z-index: 1000;
+  display: none;
+}
+

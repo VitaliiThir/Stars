@@ -1,0 +1,1 @@
+$(window).on("load",function(){var n=$(".preloader");n.find(".preloader-item").fadeOut(),n.delay(350).fadeOut("slow")}),document.addEventListener("DOMContentLoaded",function(n){var o=$(".block");$("button").on("click",function(){popUp(o)})});
