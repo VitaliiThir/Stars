@@ -4,10 +4,16 @@
    right: auto;
   }
 }
-@mixin pseudo($display: block, $pos: absolute, $content: ''){
+@mixin pseudo($display: block, $pos: absolute, $content: '', $size: true){
   content: $content;
   display: $display;
   position: $pos;
+  @if $size {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 @mixin responsive-ratio($x,$y, $pseudo: false) {
   $padding: unquote( ( $y / $x ) * 100 + '%' );

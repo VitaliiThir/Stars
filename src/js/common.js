@@ -9,9 +9,22 @@ $(window).on('load', function () {
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    let block = $('.block');
-    $('button').on('click', function () {
-        popUp(block);
+    $('.nav').on('click', function () {
+       $(this).toggleClass('active');
+    });
+
+    $('.top-slider').on(`init reInit`, function(event, slick) {
+        $('.counter').text(1 + ' / ' + slick.slideCount);
+    })
+    $('.top-slider').on(`afterChange`, function(event, slick, currentSlide, nextSlide) {
+        $('.counter').text(currentSlide + 1 + ' / ' + slick.slideCount);
+    })
+
+    $('.top-slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        asNavFor: '.top-slider',
+        dots: false
     });
 
 });
