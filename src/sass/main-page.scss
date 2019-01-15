@@ -10,34 +10,34 @@
     position: relative;
     &-slider {
       &-item {
-        position: relative;
-        overflow: hidden;
-        @include responsive-ratio(1, 1, true);
-        img {
-          position: absolute;
-          display: block;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 100%;
-          filter: grayscale(100%);
+        @include background;
+        height: 900px;
+        filter: grayscale(100%);
+        &:hover {
+          cursor: grab;
+        }
+        &:active {
+          cursor: grabbing;
         }
       }
     }
     .insert-top {
       position: absolute;
+      display: flex;
+      align-items: flex-end;
       overflow: hidden;
       left: 0;
       bottom: 0;
       width: 263px;
-      height: 263px;
       background-color: #fff;
+      padding-top: 75px;
+      padding-bottom: 85px;
       &-slider {
+        width: 75%;
+        flex: 0 0 auto;
         figure {
           figcaption {
             padding-left: rem(20px);
-            max-width: 160px;
             h3 {
               color: #362f2f;
               font-size: rem(18px);
@@ -50,6 +50,7 @@
               font-size: 14px;
               font-weight: 400;
               font-style: italic;
+              margin-bottom: 1em;
             }
             p {
               font-size: 14px;
@@ -59,6 +60,343 @@
           }
         }
       }
+      ///////////////////
+      .insert-nav {
+        .insert-buttons {
+          display: flex;
+          .insert-prev,
+          .insert-next {
+            @include background($size: 40%);
+            width: 34px;
+            height: 34px;
+            background-color: #362f2f;
+            cursor: pointer;
+            transition: background-color .3s;
+            @include mediaToDown($lg) {
+              &:active {
+                background-color: lighten(#362f2f, 5%);
+              }
+            }
+            @include mediaToUp($lg) {
+              &:hover {
+                background-color: lighten(#362f2f, 5%);
+              }
+            }
+          }
+          .insert-next {
+            background-image: url('../img/home_slider/next.svg');
+          }
+          .insert-prev {
+            background-image: url('../img/home_slider/prev.svg');
+          }
+        }
+        .counter {
+          margin-top: rem(10px);
+          text-align: center;
+          color: #362f2f;
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+      .insert-footer {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: rem(20px);
+        &-icon {
+          flex: 0 0 auto;
+          width: rem(20px);
+          height: rem(20px);
+          @include mediaToDown($lg) {
+            &:active {
+              svg {
+                fill: lighten(#c29f00, 5%);
+              }
+            }
+          }
+          @include mediaToUp($lg) {
+            &:hover {
+              svg {
+                fill: lighten(#c29f00, 5%);
+              }
+            }
+          }
+          svg {
+            max-width: 100%;
+            max-height: 100%;
+            fill: #c29f00;
+            transition: fill .3s;
+          }
+        }
+      }
     }
   }
+
+  /* News */
+  .news {
+    margin-top: 60px;
+    .fashion {
+      &-img {
+        img {
+          max-width: 100%;
+        }
+      }
+      figcaption {
+        color: #fff;
+        text-align: center;
+        background-color: #000000;
+        text-transform: uppercase;
+        line-height: 1em;
+        padding: rem(25px) rem(15px) rem(20px);
+        h4 {
+          font-size: rem(18px);
+          font-weight: 300;
+          line-height: inherit;
+          text-transform: inherit;
+          margin-bottom: 0.8em;
+        }
+        p {
+          line-height: inherit;
+          text-transform: inherit;
+          &:nth-child(2) {
+            font-size: rem(16px);
+            font-weight: 400;
+            margin-bottom: 0.9em;
+          }
+          &:nth-child(3) {
+            font-size: 14px;
+            font-weight: 300;
+          }
+        }
+        .fashion-logo {
+          display: table;
+          width: rem(67px);
+          height: rem(67px);
+          background-color: #c3a000;
+          margin-top: rem(30px);
+          @include mx-auto;
+          p {
+            display: table-cell;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    //////////////////
+    &__heading {
+      position: relative;
+      color: #362f2f;
+      font-size: rem(16px);
+      font-weight: 700;
+      line-height: 1em;
+      text-transform: uppercase;
+      margin-bottom: 0.3em;
+      padding-bottom: 0.3em;
+      &::after {
+        @include pseudo($size: false);
+        top: 100%;
+        left: 0;
+        width: 50%;
+        height: 1px;
+        background-color: #c3a000;
+      }
+    }
+    &-slider {
+      figure {
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .news-slider__photo {
+          flex: 0 0 auto;
+          max-width: 67px;
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        figcaption {
+          text-transform: uppercase;
+          max-width: 100%;
+          margin-left: rem(30px);
+          h4 {
+            color: #362f2f;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1em;
+            text-transform: inherit;
+          }
+          h5 {
+            color: #7a7a7a;
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1em;
+            text-transform: inherit;
+            margin-bottom: 0.5em;
+          }
+          p {
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: initial;
+            line-height: 1.1em;
+            a {
+              color: #c3a000;
+              font-size: 10px;
+              font-weight: 700;
+              line-height: 14px;
+              text-transform: uppercase;
+              @include mediaToDown($lg) {
+                text-decoration: underline;
+              }
+              @include mediaToUp($lg) {
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //////////////////
+    .contacts {
+      padding-top: rem(20px);
+      &-top {
+        display: flex;
+        figure {
+          margin-right: rem(30px);
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        &-data {
+          ul {
+            li {
+              position: relative;
+              color: #362f2f;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 1em;
+              text-transform: uppercase;
+              margin-bottom: 0.8em;
+              padding-left: 2em;
+              &::before {
+                @include pseudo($size: false);
+                @include background($size: contain);
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 1em;
+              }
+              &:first-child {
+                &::before {
+                  background-image: url('../img/news/call.svg');
+                }
+              }
+              &:nth-child(2) {
+                &::before {
+                  background-image: url('../img/header/5.svg');
+                }
+              }
+              a {
+                color: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+                text-transform: inherit;
+                border-bottom: 1px dotted transparent;
+                transition: border-color .2s;
+                @include mediaToDown($lg) {
+                  border-color: inherit;
+                }
+                @include mediaToUp($lg) {
+                  &:hover {
+                    border-color: inherit;
+                  }
+                }
+              }
+            }
+          }
+          .soc-icons {
+            display: flex;
+            margin-top: rem(30px);
+            justify-content: space-around;
+            a {
+              display: block;
+              margin-right: rem(20px);
+              flex: 0 0 auto;
+              &:last-child {
+                margin-right: 0;
+              }
+              img {
+                display: block;
+                max-width: 100%;
+                width: rem(20px);
+                height: rem(20px);
+                transition: transform .4s;
+                &:hover {
+                  transform: rotateY(360deg);
+                }
+              }
+            }
+          }
+        }
+      }
+      ////////////////
+      &-bottom {
+        margin-top: rem(80px);
+        &__icon {
+          width: 22px;
+          height: 18px;
+          @include mx-auto;
+          margin-bottom: rem(20px);
+          &:hover {
+            a {
+              img {
+                transform: rotateY(360deg);
+              }
+            }
+          }
+          a {
+            img {
+              max-width: 100%;
+              max-height: 100%;
+              transition: transform .4s;
+            }
+          }
+        }
+        &__description {
+          p {
+            color: #c3a000;
+            text-align: center;
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1em;
+            a {
+              font-size: inherit;
+              line-height: inherit;
+              font-weight: inherit;
+              color: #000;
+              border-bottom: 1px dotted transparent;
+              transition: border-color .2s;
+              @include mediaToDown($lg) {
+                border-color: inherit;
+              }
+              @include mediaToUp($lg) {
+                &:hover {
+                  border-color: inherit;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*END News */
 }
