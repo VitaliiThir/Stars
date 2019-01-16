@@ -71,7 +71,7 @@
             height: 34px;
             background-color: #362f2f;
             cursor: pointer;
-            transition: background-color .3s;
+            transition: background .3s;
             @include mediaToDown($lg) {
               &:active {
                 background-color: lighten(#362f2f, 5%);
@@ -85,9 +85,15 @@
           }
           .insert-next {
             background-image: url('../img/home_slider/next.svg');
+            &:active {
+              background-position: 60% center;
+            }
           }
           .insert-prev {
             background-image: url('../img/home_slider/prev.svg');
+            &:active {
+              background-position: 40% center;
+            }
           }
         }
         .counter {
@@ -111,6 +117,7 @@
           flex: 0 0 auto;
           width: rem(20px);
           height: rem(20px);
+          cursor: pointer;
           @include mediaToDown($lg) {
             &:active {
               svg {
@@ -335,8 +342,8 @@
               img {
                 display: block;
                 max-width: 100%;
-                width: rem(20px);
-                height: rem(20px);
+                width: rem(16px);
+                height: rem(16px);
                 transition: transform .4s;
                 &:hover {
                   transform: rotateY(360deg);
@@ -350,14 +357,18 @@
       &-bottom {
         margin-top: rem(80px);
         &__icon {
-          width: 22px;
-          height: 18px;
+          width: 25px;
+          height: 25px;
           @include mx-auto;
           margin-bottom: rem(20px);
+          @keyframes worldRotate {
+            0%{transform: rotate(0)}
+            100%{transform: rotate(360deg)}
+          }
           &:hover {
             a {
               img {
-                transform: rotateY(360deg);
+                animation: none;
               }
             }
           }
@@ -365,7 +376,7 @@
             img {
               max-width: 100%;
               max-height: 100%;
-              transition: transform .4s;
+              animation: worldRotate 10s linear infinite;
             }
           }
         }
@@ -399,4 +410,5 @@
     }
   }
   /*END News */
+
 }

@@ -1,0 +1,181 @@
+@import 'plug/rem';
+@import 'plug/variables';
+@import 'plug/media-queries';
+@import 'plug/mixins';
+@import 'plug/popup';
+@import '../../node_modules/rfs/scss/rfs';
+
+.about-me {
+  .top {
+    &-photo {
+      height: 100%;
+      overflow: hidden;
+      &__img {
+        @keyframes avtorBg {
+          0% {
+            transform: scale(1)
+          }
+          100% {
+            transform: scale(1.07)
+          }
+        }
+        @include background;
+        height: 100%;
+        transition: transform 10s linear;
+        animation: avtorBg 15s linear infinite;
+        animation-direction: alternate;
+      }
+    }
+    &-description {
+      color: #362f2f;
+      padding: rem(80px) rem(30px) rem(60px);
+      h2 {
+        color: inherit;
+        font-size: rem(18px);
+        font-weight: 700;
+        line-height: 1em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1.3em;
+      }
+      p {
+        color: inherit;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.16em;
+        margin-bottom: 1.6em;
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+
+  /* Years */
+  .years {
+    margin-top: 115px;
+    .y-item {
+      padding: rem(10px);
+      .y-timeline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #362f2f;
+        @include mx-auto;
+        p {
+          flex: 0 0 auto;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 1em;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          max-width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      h4 {
+        color: #c29f00;
+        font-size: rem(18px);
+        font-weight: 400;
+        line-height: 1em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.25em;
+      }
+      p {
+        color: #362f2f;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.16em;
+        letter-spacing: 1.2px;
+        &:not(:last-child) {
+          padding-bottom: 1.3em;
+          border-bottom: 1px solid #c3a000;
+
+        }
+        &:not(:nth-child(2)) {
+          padding-top: 1.3em;
+        }
+        span {
+          color: #ff0000;
+        }
+      }
+    }
+  }
+  /*END Years */
+
+  /* Clients */
+  .clients {
+    margin-top: 100px;
+    .c-item {
+      color: #362f2f;
+      padding: rem(10px);
+      .c-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #c3a000;
+        @include mx-auto;
+        p {
+          flex: 0 0 auto;
+          color: inherit;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 1em;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          max-width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      h4 {
+        font-size: rem(18px);
+        font-weight: 400;
+        line-height: 1em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.8em;
+      }
+      ul {
+        li {
+          color: inherit;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 1.16em;
+          letter-spacing: 0.1em;
+          margin-bottom: 0.1em;
+        }
+      }
+      &.description {
+        text-align: center;
+        .c-quote {
+          color: inherit;
+          @include rfs(72);
+          font-weight: 400;
+          line-height: 1em;
+          letter-spacing: 0.1em;
+          margin-bottom: .2em;
+          transform: rotate(180deg);
+        }
+        p {
+          &:nth-child(2) {
+            font-size: rem(18px);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1em;
+            letter-spacing: 0.1em;
+            margin-bottom: .5em;
+          }
+          &:nth-child(3) {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1em;
+            letter-spacing: 1.4px;
+          }
+        }
+      }
+    }
+  }
+  /*END Clients */
+}

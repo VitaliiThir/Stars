@@ -1,0 +1,132 @@
+@import 'plug/rem';
+@import 'plug/variables';
+@import 'plug/media-queries';
+@import 'plug/mixins';
+@import 'plug/popup';
+@import '../../node_modules/rfs/scss/rfs';
+
+.blog {
+  a {
+    height: 100%;
+  }
+  .col-lg-4 {
+    &:nth-child(odd) {
+      .b-item {
+        background-color: #362f2f;
+      }
+    }
+    &:nth-child(even) {
+      .b-item {
+        background-color: #000000;
+      }
+    }
+  }
+  .b-item {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    transition: box-shadow .3s;
+    height: 100%;
+    &:hover {
+      box-shadow: 0 0 20px 0 rgba(#000, .2);
+      .b-item-photo {
+        img {
+          transform: scale(1.1);
+        }
+        &::after {
+          background-color: rgba(#000, .3);
+        }
+      }
+    }
+    h3, p, button {
+      color: inherit;
+      font-style: inherit;
+    }
+    &-photo {
+      position: relative;
+      overflow: hidden;
+      @include responsive-ratio(1, 1, true);
+      &::after {
+        @include pseudo;
+        transition: background-color .3s;
+      }
+      img {
+        @include responsive-img;
+        transition: transform 2s;
+      }
+    }
+    figcaption {
+      font-style: normal;
+      padding: rem(32px) rem(10px) 0;
+      margin-bottom: rem(35px);
+      h3 {
+        @include rfs(26);
+        font-weight: 400;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin-bottom: .65em;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.3em;
+      }
+    }
+    footer {
+      margin-top: auto;
+      padding: 0 rem(20px) rem(32px);
+      button {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: rem(10px) rem(60px);
+        background-color: #c3a000;
+        transition: all .3s;
+        cursor: pointer;
+        margin-top: auto;
+        margin-bottom: rem(15px);
+        border: 1px solid #c3a000;
+        @include mx-auto;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+      .footer-items-wrap {
+        display: flex;
+        justify-content: space-between;
+        .b-footer-item {
+          p {
+            position: relative;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: .1em;
+            padding-left: 1.5em;
+            &::before {
+              @include pseudo($size: false);
+              left: 0;
+              top: 0;
+              bottom: 0;
+              width: 1em;
+              @include background($size: contain);
+            }
+          }
+          &:first-child {
+            p {
+              &::before {
+                background-image: url('../img/blog/calendar.svg');
+              }
+            }
+          }
+          &:nth-child(2) {
+            p {
+              &::before {
+                background-image: url('../img/blog/comment.svg');
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

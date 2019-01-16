@@ -9,6 +9,7 @@ $(window).on('load', function () {
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
+    let windowWidth;
     /* Menu */
     $('.nav').on('click', function () {
         $(this).toggleClass('active');
@@ -48,5 +49,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         autoplaySpeed: 3500
     });
     /*END News slider */
+
+    /* y-timeline */
+    $(window).resize(function () {
+       timeLineHeight('.auto-height');
+    });
+    function timeLineHeight(objHeight) {
+        windowWidth = $(window).width();
+        let timeLine = $(objHeight);
+        let timeLineWidth = $(timeLine).width();
+        $(timeLine).css('height', timeLineWidth + 'px');
+    }
+    timeLineHeight('.auto-height');
+    /*END y-timeline */
 
 });
