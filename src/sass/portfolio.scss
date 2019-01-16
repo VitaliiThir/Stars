@@ -1,0 +1,72 @@
+@import 'plug/rem';
+@import 'plug/variables';
+@import 'plug/media-queries';
+@import 'plug/mixins';
+@import 'plug/popup';
+@import '../../node_modules/rfs/scss/rfs';
+
+.portfolio {
+  margin-bottom: 200px;
+  .p-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    color: #362f2f;
+    h1, p {
+      color: inherit;
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+    h1 {
+      @include rfs(24);
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: .4em;
+    }
+    p {
+      font-size: rem(18px);
+      font-weight: 300;
+      line-height: 1em;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+  }
+  a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    @include responsive-ratio(1, 1, true);
+    .p-photo {
+      @include responsive-img;
+      @include background;
+      filter: grayscale(100%);
+      transition: all .5s linear;
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        transform: translate(-50%, -50%);
+        transition: all .5s;
+        background-image: url('../img/portfolio/zoom.svg');
+        background-color: rgba(#fff, .5);
+        @include background($size: 10%);
+      }
+      &:hover {
+        transform: scale(1.05);
+        filter: grayscale(0);
+        &::after {
+          width: 75%;
+          height: 75%;
+        }
+      }
+    }
+  }
+}

@@ -118,6 +118,7 @@ svg {
 
 /*END Preloader */
 /* Global styles end*/
+/* Header */
 .header {
   position: relative;
   z-index: 1;
@@ -260,6 +261,7 @@ svg {
     }
   }
 }
+/*END Header */
 
 /* Company logos */
 .c-logos {
@@ -284,7 +286,7 @@ svg {
 }
 /*END Company logos */
 
-/* Это можно удалить перед началом работы */
+/* Header */
 .footer {
   color: #000000;
   text-align: center;
@@ -301,5 +303,44 @@ svg {
     margin-top: rem(60px);
   }
 }
+/*END Header */
 
-/*END Это можно удалить перед началом работы */
+/* Scroll Button */
+.scroll-button {
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 50px;
+  right: 50px;
+  width: 50px;
+  cursor: pointer;
+  transition: all .2s linear;
+  transform: translateY(300%);
+  opacity: 1;
+  background: url('../img/up-arrow.svg') #362f2f;
+  @include background($size: 25%, $position: center 50%);
+  @include mediaToDown($sm) {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+  }
+  @include mediaOnly($sm, $md) {
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+  }
+  &.active {
+    transform: translateY(0);
+    @include mediaToUp($lg) {
+      &:hover {
+        opacity: 1;
+      }
+      &:active {
+        background-position: center 45%;
+      }
+    }
+  }
+}
+/*END Scroll Button */

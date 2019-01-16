@@ -63,4 +63,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
     timeLineHeight('.auto-height');
     /*END y-timeline */
 
+    /* Scroll button */
+    $(window).on('scroll', function(){
+        scrollBtn();
+    });
+
+    let btnScrollTop = $('.scroll-button');
+
+    function scrollBtn(){
+        let bodyScroll = $('html, body').scrollTop();
+        if(bodyScroll > 300) {
+            $(btnScrollTop).addClass('active');
+        } else {
+            $(btnScrollTop).removeClass('active');
+        }
+    }
+    $(btnScrollTop).on('click', function(){
+        $('html, body').animate({
+            scrollTop: 0
+        }, 600);
+    });
+    scrollBtn();
+    /*END Scroll button */
+
+    /* Portfolio fansybox */
+    $('.fancybox').fancybox();
+    /*END Portfolio fansybox */
+
 });
