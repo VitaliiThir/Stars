@@ -27,6 +27,17 @@
    padding-top: $padding;
   }
 }
+@mixin absolut($width: false) {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  @if $width {
+    width: 100%;
+  }
+}
 @mixin responsive-img() {
   position: absolute;
   display: block;

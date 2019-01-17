@@ -52,15 +52,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     /* y-timeline */
     $(window).resize(function () {
-       timeLineHeight('.auto-height');
+       autoHeight();
     });
-    function timeLineHeight(objHeight) {
-        windowWidth = $(window).width();
-        let timeLine = $(objHeight);
-        let timeLineWidth = $(timeLine).width();
-        $(timeLine).css('height', timeLineWidth + 'px');
-    }
-    timeLineHeight('.auto-height');
+    autoHeight();
     /*END y-timeline */
 
     /* Scroll button */
@@ -138,4 +132,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
     /*END Contacts validation */
+
+    $('.contacts').elemHeight();
 });
