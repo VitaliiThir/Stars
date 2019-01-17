@@ -90,4 +90,52 @@ document.addEventListener("DOMContentLoaded", function (event) {
     $('.fancybox').fancybox();
     /*END Portfolio fansybox */
 
+    /* Contacts validation */
+    /*let ajaxFormSubmit = function (form, event) {
+        let string = $(form).serialize();
+        $.ajax({
+            type: "POST",
+            data: string,
+            success: function (html) {
+                $(".contacts form").html(html).css({
+                    'color':'#a8bfa8',
+                    'text-align': 'center'
+                });
+            },
+            error: function () {
+                $(".contacts form").html('Ошибка !');
+            }
+        });
+        return false;
+    };*/
+
+    $('.contacts form').validate({
+        rules: {
+            user_name: {
+                required: true,
+                minlength: 2,
+                maxlength: 12
+            },
+            user_email: {
+                required: true,
+                email: true
+            },
+        },
+        messages: {
+            user_name: {
+                required: 'Enter your name',
+                minlength: 'Name cannot be less than two characters.',
+                maxlength: 'Name length not more than twelve characters'
+            },
+            user_email: {
+                required: 'Enter email',
+                email: 'Enter the correct email'
+            },
+        },
+        focusCleanup: false,
+        focusInvalid: true,
+        // submitHandler: ajaxFormSubmit
+    });
+
+    /*END Contacts validation */
 });
