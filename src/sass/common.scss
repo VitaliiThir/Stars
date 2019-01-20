@@ -269,8 +269,7 @@ svg {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  @include sectionMargin($margin-top: 100px, $margin-bottom: 100px);
   a {
     display: block;
     flex: 0 0 auto;
@@ -300,7 +299,7 @@ svg {
     @include mx-auto;
   }
   &-copyright {
-    margin-top: rem(60px);
+    @include sectionMargin($margin-top: 60px);
   }
 }
 /*END Header */

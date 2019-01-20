@@ -133,5 +133,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     /*END Contacts validation */
 
-    $('.contacts').elemHeight();
+    $('.main-page .contacts').elemHeight();
 });

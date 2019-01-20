@@ -50,7 +50,10 @@
 
   /* Years */
   .years {
-    margin-top: 115px;
+    @include sectionMargin(115px);
+    @include mediaToDown($lg) {
+      margin-top: 0 !important;
+    }
     .y-item {
       padding: rem(10px);
       .y-timeline {
@@ -105,7 +108,7 @@
 
   /* Clients */
   .clients {
-    margin-top: 100px;
+    @include sectionMargin($margin-top: 100px);
     .c-item {
       color: #362f2f;
       padding: rem(10px);

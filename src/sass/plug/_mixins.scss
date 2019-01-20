@@ -1,3 +1,6 @@
+@import "_variables";
+@import "_media-queries";
+
 @mixin mx-auto {
   margin: {
    left: auto;
@@ -33,7 +36,7 @@
   left: 0;
   top: 0;
   bottom: 0;
-  left: 0;
+  right: 0;
   @if $width {
     width: 100%;
   }
@@ -71,7 +74,7 @@
   background-size: $size;
 }
 
-@mixin textInherit($font-size: inherit, $font-weight: inherit, $font-style: inherit, $color: inherit, $line-height: inherit,$word-wrap: normal) {
+@mixin textInherit($font-size: inherit, $font-weight: inherit, $font-style: inherit, $color: inherit, $line-height: inherit, $word-wrap: normal) {
   font: {
     size: $font-size;
     weight: $font-weight;
@@ -80,4 +83,75 @@
   color: $color;
   line-height: $line-height;
   word-wrap: $word-wrap;
+}
+
+@mixin sectionMargin($margin-top: false, $margin-bottom: false, $padding-top: false, $padding-bottom: false) {
+  @if $margin-top {
+    @include mediaToDown($sm) {
+      margin-top: $margin-top - ($margin-top / 100) * 40;
+    }
+    @include mediaOnly($sm, $md) {
+      margin-top: $margin-top - ($margin-top / 100) * 30;
+    }
+    @include mediaOnly($md, $lg) {
+      margin-top: $margin-top - ($margin-top / 100) * 20;
+    }
+    @include mediaOnly($lg, $xl) {
+      margin-top: $margin-top - ($margin-top / 100) * 10;
+    }
+    @include mediaToUp($xl) {
+      margin-top: $margin-top;
+    }
+  }
+  @if $margin-bottom {
+    @include mediaToDown($sm) {
+      margin-bottom: $margin-bottom - ($margin-bottom / 100) * 40;
+    }
+    @include mediaOnly($sm, $md) {
+      margin-bottom: $margin-bottom - ($margin-bottom / 100) * 30;
+    }
+    @include mediaOnly($md, $lg) {
+      margin-bottom: $margin-bottom - ($margin-bottom / 100) * 20;
+    }
+    @include mediaOnly($lg, $xl) {
+      margin-bottom: $margin-bottom - ($margin-bottom / 100) * 10;
+    }
+    @include mediaToUp($xl) {
+      margin-bottom: $margin-bottom;
+    }
+  }
+  @if $padding-top {
+    @include mediaToDown($sm) {
+      padding-top: $padding-top - ($padding-top / 100) * 40;
+    }
+    @include mediaOnly($sm, $md) {
+      padding-top: $padding-top - ($padding-top / 100) * 30;
+    }
+    @include mediaOnly($md, $lg) {
+      padding-top: $padding-top - ($padding-top / 100) * 20;
+    }
+    @include mediaOnly($lg, $xl) {
+      padding-top: $padding-top - ($padding-top / 100) * 10;
+    }
+    @include mediaToUp($xl) {
+      padding-top: $padding-top;
+    }
+  }
+  @if $padding-bottom {
+    @include mediaToDown($sm) {
+      padding-bottom: $padding-bottom - ($padding-bottom / 100) * 40;
+    }
+    @include mediaOnly($sm, $md) {
+      padding-bottom: $padding-bottom - ($padding-bottom / 100) * 30;
+    }
+    @include mediaOnly($md, $lg) {
+      padding-bottom: $padding-bottom - ($padding-bottom / 100) * 20;
+    }
+    @include mediaOnly($lg, $xl) {
+      padding-bottom: $padding-bottom - ($padding-bottom / 100) * 10;
+    }
+    @include mediaToUp($xl) {
+      padding-bottom: $padding-bottom;
+    }
+  }
 }

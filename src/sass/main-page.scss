@@ -144,7 +144,7 @@
 
   /* News */
   .news {
-    margin-top: 60px;
+    @include sectionMargin(60px);
     .fashion {
       &-img {
         img {
@@ -353,7 +353,7 @@
       }
       ////////////////
       &-bottom {
-        margin-top: rem(80px);
+        @include sectionMargin($margin-top: 80px);
         &__icon {
           width: 25px;
           height: 25px;
@@ -387,10 +387,7 @@
             font-weight: 400;
             line-height: 1em;
             a {
-              font-size: inherit;
-              line-height: inherit;
-              font-weight: inherit;
-              color: #000;
+              @include textInherit($color: #000);
               border-bottom: 1px dotted transparent;
               transition: border-color .2s;
               @include mediaToDown($lg) {

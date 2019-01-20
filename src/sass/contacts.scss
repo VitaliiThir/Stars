@@ -6,17 +6,17 @@
 
 .contacts {
   margin-top: 90px;
+  h2 {
+    font-size: rem(18px);
+    font-weight: 700;
+    line-height: 1em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 1.9em;
+  }
   .form {
     & * {
       color: #362f2f;
-    }
-    h2 {
-      font-size: rem(18px);
-      font-weight: 700;
-      line-height: 1em;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 1.9em;
     }
     form {
       fieldset {
@@ -101,6 +101,86 @@
       }
       & input.valid {
         border-color: #00b700 !important;
+      }
+    }
+  }
+  /////////////////
+  .info {
+    color: #362f2f;
+    padding-left: 30px;
+    &-top {
+      @include sectionMargin($margin-bottom: 70px);
+      &-data {
+        ul {
+          li {
+            position: relative;
+            color: inherit;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1em;
+            text-transform: uppercase;
+            margin-bottom: 0.8em;
+            padding-left: 2em;
+            &::before {
+              @include pseudo($size: false);
+              @include background($size: contain);
+              top: 0;
+              bottom: 0;
+              left: 0;
+              width: 1em;
+            }
+            &:nth-child(1) {
+              &::before {
+                background-image: url('../img/point.svg');
+              }
+            }
+            &:nth-child(2) {
+              &::before {
+                background-image: url('../img/news/call.svg');
+              }
+            }
+            &:nth-child(3) {
+              &::before {
+                background-image: url('../img/header/5.svg');
+              }
+            }
+            a {
+              color: inherit;
+              font-size: inherit;
+              font-weight: inherit;
+              line-height: inherit;
+              text-transform: inherit;
+              border-bottom: 1px dotted transparent;
+              transition: border-color .2s;
+              @include mediaToDown($lg) {
+                border-color: inherit;
+              }
+              @include mediaToUp($lg) {
+                &:hover {
+                  border-color: inherit;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &-description {
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.16em;
+        letter-spacing: .1em;
+        margin-bottom: rem(20px);
+      }
+    }
+    &-logo {
+      max-width: 100px;
+      @include mx-auto;
+      @include sectionMargin($margin-top: 100px);
+      img {
+        max-width: 100%;
+        max-height: 100%;
       }
     }
   }
