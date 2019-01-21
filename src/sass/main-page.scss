@@ -12,6 +12,20 @@
         @include background;
         height: 900px;
         filter: grayscale(100%);
+        @include mediaToDown($m) {
+          background-size: 100%;
+          background-position: center 0;
+          height: 400px;
+        }
+        @include mediaToDown($sm) {
+          height: 600px;
+        }
+        @include mediaOnly($md, $lg) {
+          height: 750px;
+        }
+        @include mediaOnly($sm, $md) {
+          height: 700px;
+        }
         &:hover {
           cursor: grab;
         }
@@ -29,8 +43,13 @@
       bottom: 0;
       width: 263px;
       background-color: #fff;
-      padding-top: 75px;
-      padding-bottom: 85px;
+      @include sectionMargin($padding-top: 75px, $padding-bottom: 85px);
+      @include mediaToDown($m) {
+        width: 100%;
+      }
+      @include mediaToDown($sm) {
+        padding-top: 20px;
+      }
       &-slider {
         width: 75%;
         flex: 0 0 auto;
@@ -147,8 +166,11 @@
     @include sectionMargin(60px);
     .fashion {
       &-img {
+        position: relative;
+        overflow: hidden;
+        @include responsive-ratio(1, 0.41, true);
         img {
-          max-width: 100%;
+          @include responsive-img;
         }
       }
       figcaption {
@@ -174,19 +196,21 @@
             margin-bottom: 0.9em;
           }
           &:nth-child(3) {
-            font-size: 14px;
+            font-size: rem(14px);
             font-weight: 300;
           }
         }
         .fashion-logo {
-          display: table;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           width: rem(67px);
           background-color: #c3a000;
-          margin-top: rem(30px);
+          //margin-top: rem(30px);
+          @include sectionMargin($margin-top: 30px);
           @include mx-auto;
           p {
-            display: table-cell;
-            vertical-align: middle;
+            flex: 0 0 auto;
           }
         }
       }
@@ -213,8 +237,10 @@
     &-slider {
       figure {
         display: flex;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding: 20px 0;
+        @include mediaOnly($lg, $xl) {
+          padding: 10px 0;
+        }
         .news-slider__photo {
           flex: 0 0 auto;
           max-width: 67px;
@@ -269,8 +295,17 @@
     //////////////////
     .contacts {
       padding-top: rem(20px);
+      @include mediaOnly($md, $lg) {
+        display: flex;
+        &-top, &-bottom {
+          width: 50%;
+        }
+      }
       &-top {
         display: flex;
+        @include mediaOnly(0, $md) {
+          justify-content: center;
+        }
         figure {
           margin-right: rem(30px);
           img {
@@ -354,10 +389,14 @@
       ////////////////
       &-bottom {
         @include sectionMargin($margin-top: 80px);
+        @include mediaOnly($md, $lg) {
+          margin-top: 0 !important;
+        }
         &__icon {
           width: 25px;
           height: 25px;
           @include mx-auto;
+          transition: transform .2s linear;
           margin-bottom: rem(20px);
           @keyframes worldRotate {
             0%{transform: rotate(0)}
@@ -366,7 +405,7 @@
           &:hover {
             a {
               img {
-                animation: none;
+                animation-direction: reverse;
               }
             }
           }

@@ -89,6 +89,10 @@
           50%{background-image: linear-gradient(45deg, transparent,rgba(#fff, .3),transparent);}
           100%{background-image: linear-gradient(45deg, transparent,transparent,rgba(#fff, .1));}
         }
+        @include mediaToDown($m) {
+          display: block;
+          @include mx-auto;
+        }
       }
       //////////////////////
       & label.error {
@@ -108,6 +112,9 @@
   .info {
     color: #362f2f;
     padding-left: 30px;
+    @include mediaToDown($md) {
+      padding-left: 0;
+    }
     &-top {
       @include sectionMargin($margin-bottom: 70px);
       &-data {

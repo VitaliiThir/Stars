@@ -27,14 +27,16 @@
     color: #ffffff;
     transition: box-shadow .3s;
     height: 100%;
-    &:hover {
-      box-shadow: 0 0 20px 0 rgba(#000, .2);
-      .b-item-photo {
-        img {
-          transform: scale(1.05);
-        }
-        &::after {
-          background-color: rgba(#000, .3);
+    @include mediaToUp($lg) {
+      &:hover {
+        box-shadow: 0 0 20px 0 rgba(#000, .2);
+        .b-item-photo {
+          img {
+            transform: scale(1.05);
+          }
+          &::after {
+            background-color: rgba(#000, .3);
+          }
         }
       }
     }
@@ -88,9 +90,18 @@
         margin-bottom: rem(15px);
         border: 1px solid #c3a000;
         @include mx-auto;
-        &:hover {
-          background-color: transparent;
-          box-shadow: 0 0 15px 0 rgba(#000, .3);
+        @include mediaToDown($lg) {
+          transition: all .1s;
+          &:active {
+            background-color: transparent;
+            box-shadow: 0 0 15px 0 rgba(#000, .3);
+          }
+        }
+        @include mediaToUp($lg) {
+          &:hover {
+            background-color: transparent;
+            box-shadow: 0 0 15px 0 rgba(#000, .3);
+          }
         }
       }
       .footer-items-wrap {
@@ -169,6 +180,9 @@
   }
   &-number-wrap {
     display: flex;
+    @include mediaToDown($sm) {
+      flex-wrap: wrap;
+    }
   }
   .number {
     display: flex;
@@ -196,11 +210,11 @@
     &:last-child {
       margin-right: 0;
     }
-  }
-  .number.selected {
-    background-color: #362f2f;
-    box-shadow: 0 0 20px 0 rgba(#000, .2);
-    color: #fff;
+    &.selected {
+      background-color: #362f2f;
+      box-shadow: 0 0 20px 0 rgba(#000, .2);
+      color: #fff;
+    }
   }
 }
 

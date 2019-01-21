@@ -6,6 +6,9 @@
 
 .portfolio {
   @include sectionMargin($margin-bottom: 200px);
+  @include mediaToDown($sm) {
+    padding-top: 70px;
+  }
   .p-title {
     display: flex;
     flex-direction: column;

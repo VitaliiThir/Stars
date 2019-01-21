@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     /* y-timeline */
     $(window).resize(function () {
-       autoHeight();
+       $('.auto-height').autoHeight();
     });
-    autoHeight();
+    $('.auto-height').autoHeight();
     /*END y-timeline */
 
     /* Scroll button */
@@ -81,7 +81,43 @@ document.addEventListener("DOMContentLoaded", function (event) {
     /*END Scroll button */
 
     /* Portfolio fansybox */
-    $('.fancybox').fancybox();
+    $('[data-fancybox="actor"]').fancybox({
+        loop: true,                    /*Бесконечная прокрутка галереи*/
+        protect: false,                 /*Разрешить/Запретить скачивать кликом по фото*/
+        opacity: true,                  /*Скорость появления/угасания прозрачности элементов*/
+        margin: [44, 0],                /*Отступы вокруг картинок (Игнорируется, если ширина окна менее 800px)*/
+        gutter: 30,                     /*Горизонтальный отступ между слайдами*/
+        modal: false,                   /*Ярлык, чтобы сделать контент «модальным» - отключить навигацию с клавиатуры, скрыть кнопки и т.д.*/
+        animationEffect: "zoom-in-out",        /*Открыть/закрыть - тип анимации*/
+        animationDuration: 400,         /*Продолжительность в мс для анимации открытия/закрытия*/
+        defaultType: "image",           /*Тип содержимого по умолчанию, если не может быть обнаружен автоматически*/
+        zoomOpacity: "auto",            /*Изменить прозрачность при масштабировании*/
+        slideShow: {
+            autoStart: false,
+            speed: 2000
+        },
+        fullScreen : true,
+        transitionEffect: "circular",   /*Эффект перехода между слайдами*/
+        transitionDuration: 800,        /*Продолжительность в мс для анимации перехода*/
+        buttons : [                     /*Какие кнопки должны появиться в правом верхнем углу.*/
+            "zoom",                     /*Кнопка увеличения*/
+            "slideShow",                /*Авто-слайдер*/
+            "fullScreen",               /*Во весь экран*/
+            "download",                 /*Скачать*/
+            "close",                     /*Закрыть*/
+            "share",                    /*Поделиться*/
+            "thumbs"                    /*Миниатюры фото справа*/
+        ],
+        idleTime: 3,                    /*Определить время простоя в секундах*/
+        hideScrollbar: true,            /*Скрыть скролл прокрутки браузера*/
+        wheel: "auto",                  /*Используйте колесо мыши для навигации по галерее*/
+        closeBtn: true,
+        toolbar: 'auto',                /*Панель инструментов (кнопки вверху)*/
+        smallBtn: 'auto',               /*Маленькая кнопочка "закрыть" в верхнем правом углу каждого фото*/
+        image: {                        /*Подождите, пока изображения загрузятся перед отображением*/
+            preload: false
+        },
+    });
     /*END Portfolio fansybox */
 
     /* Contacts validation */
