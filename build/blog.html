@@ -16,7 +16,14 @@
 </head>
 <body>
 <!-- Preloader -->
-<!--//= template/preloader.html-->
+<div class="preloader">
+    <div class="preloader-item">
+        <div class="preloader-item-gif"></div>
+        <div class="preloader-item-text">
+            <p>Loading...</p>
+        </div>
+    </div>
+</div>
 <!--END Preloader -->
 <!-- Header -->
 <div class="squeeze-wrapper">
@@ -56,7 +63,7 @@
     <div class="container">
         <div class="row">
             <div class="mb-5 col-m-10 offset-m-1 col-sm-8 offset-sm-2 offset-md-0 col-md-6 col-lg-4">
-                <a href="#">
+                <a href="blog_detail.html">
                     <figure class="b-item">
                         <div class="b-item-photo">
                             <img src="img/blog/1.jpg" alt="Photo">
@@ -86,7 +93,7 @@
                 </a>
             </div>
             <div class="mb-5 col-m-10 offset-m-1 col-sm-8 offset-sm-2 offset-md-0 col-md-6 col-lg-4">
-                <a href="#">
+                <a href="blog_detail.html">
                     <figure class="b-item">
                         <div class="b-item-photo">
                             <img src="img/blog/2.jpg" alt="Photo">
@@ -118,7 +125,7 @@
                 </a>
             </div>
             <div class="mb-5 col-m-10 offset-m-1 col-sm-8 offset-sm-2 offset-md-0 col-md-6 col-lg-4">
-                <a href="#">
+                <a href="blog_detail.html">
                     <figure class="b-item">
                         <div class="b-item-photo">
                             <img src="img/blog/3.jpg" alt="Photo">
@@ -149,7 +156,7 @@
                 </a>
             </div>
             <div class="mb-5 col-m-10 offset-m-1 col-sm-8 offset-sm-2 offset-md-0 col-md-6 col-lg-4">
-                <a href="#">
+                <a href="blog_detail.html">
                     <figure class="b-item">
                         <div class="b-item-photo">
                             <img src="img/blog/4.jpg" alt="Photo">
@@ -180,7 +187,7 @@
                 </a>
             </div>
             <div class="mb-5 col-m-10 offset-m-1 col-sm-8 offset-sm-2 offset-md-0 col-md-6 col-lg-4">
-                <a href="#">
+                <a href="blog_detail.html">
                     <figure class="b-item">
                         <div class="b-item-photo">
                             <img src="img/blog/5.jpg" alt="Photo">
@@ -210,7 +217,7 @@
                 </a>
             </div>
             <div class="mb-5 col-m-10 offset-m-1 col-sm-8 offset-sm-2 offset-md-0 col-md-6 col-lg-4">
-                <a href="#">
+                <a href="blog_detail.html">
                     <figure class="b-item">
                         <div class="b-item-photo">
                             <img src="img/blog/6.jpg" alt="Photo">
@@ -242,20 +249,20 @@
         </div>
         <!-- Pagination -->
         <div class="pagination">
-            <span class="prev">Prev</span>
+            <span class="prev"><a href="#">Prev</a></span>
             <div class="pagination-number-wrap">
                 <span class="number selected">1</span>
-                <span class="number">2</span>
-                <span class="number">3</span>
-                <span class="number">4</span>
-                <span class="number">5</span>
-                <span class="number">6</span>
-                <span class="number">7</span>
-                <span class="number">8</span>
+                <span class="number"><a href="#">2</a></span>
+                <span class="number"><a href="#">3</a></span>
+                <span class="number"><a href="#">4</a></span>
+                <span class="number"><a href="#">5</a></span>
+                <span class="number"><a href="#">6</a></span>
+                <span class="number"><a href="#">7</a></span>
+                <span class="number"><a href="#">8</a></span>
                 <span class="number dots">...</span>
                 <span class="number">21</span>
             </div>
-            <span class="next">NEXT</span>
+            <span class="next"><a href="#">NEXT</a></span>
         </div>
         <!-- End Pagination -->
     </div>
@@ -282,9 +289,6 @@
 </div>
 <!-- wrapper end -->
 <!--END Footer -->
-<!-- Modal window -->
-<div class="popup"></div>
-<!-- END Modal window -->
 <script src="js/libs.js"></script>
 <script src="js/modal.js"></script>
 <script src="js/common.js"></script>

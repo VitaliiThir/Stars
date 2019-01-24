@@ -1,0 +1,122 @@
+@import 'plug/rem';
+@import 'plug/variables';
+@import 'plug/media-queries';
+@import 'plug/mixins';
+@import 'plug/popup';
+@import '../../node_modules/rfs/scss/rfs';
+
+.detail-page {
+	padding-top: 80px;
+	@include sectionMargin($padding-top:80px,$padding-bottom:80px);
+	.heading {
+		text-align: center;
+		@include rfs(40);
+		margin-bottom: 0.5em;
+		h1 {
+			@include textInherit;
+		}
+	}
+	.photo {
+		height: 500px;
+		margin-bottom: 2rem;
+		&-img {
+			height: 100%;
+			@include background;
+		}
+	}
+	.news-date {
+		@include rfs(20);
+		margin-bottom: 0.5em;
+		p {}
+	}
+	.description {
+		text-align: justify;
+		font-size: 1.1rem;
+		p {
+			@include textInherit;
+		}
+	}
+	.main-back {
+		margin-top: 2rem;
+		font-size: 1rem;
+		a {
+			color: #666;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+//////////////////////////////////////////////////////////////////
+.blog-detail {
+	padding-top: 80px;
+	@include sectionMargin($padding-top:80px,$padding-bottom:80px);
+	.heading {
+		@include rfs(40);
+		margin-bottom: 0.5em;
+		h1 {
+			@include textInherit;
+		}
+	}
+	.photo {
+		height: 500px;
+		margin-bottom: 2rem;
+		&-img {
+			height: 100%;
+			@include background;
+		}
+	}
+	.blog-data {
+		display: flex;
+		justify-content: space-between;
+		@include rfs(20);
+		margin-bottom: 0.5em;
+		p {
+			position: relative;
+			font-size: 12px;
+			font-weight: 300;
+			letter-spacing: .1em;
+			padding-left: 1.5em;
+			&::before {
+				@include pseudo($size: false);
+				left: 0;
+				top: 0;
+				bottom: 0;
+				width: 1em;
+				@include background($size: contain);
+			}
+			font-size: inherit;
+		}
+		.blog-date {
+			p {
+				&::before {
+					background-image: url('../img/blog/calendar-black.svg');
+				}
+			}
+		}
+		.blog-eye {
+			p {
+				&::before {
+					background-image: url('../img/blog/comment-black.svg');
+				}
+			}
+		}
+	}
+	.description {
+		text-align: justify;
+		font-size: 1.1rem;
+		p {
+			@include textInherit;
+		}
+	}
+	.main-back {
+		margin-top: 2rem;
+		font-size: 1rem;
+		a {
+			color: #666;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

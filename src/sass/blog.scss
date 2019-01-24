@@ -156,17 +156,26 @@
   text-transform: uppercase;
   @include sectionMargin($margin-top: 40px);
   @include mx-auto;
+  a {
+    @include textInherit;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding: rem(15px) rem(25px);
+    &:hover {
+    	color: #fff;
+    }
+  }
   .prev,
   .next {
     font-size: inherit;
     color: #ffffff;
     cursor: pointer;
-    padding: rem(15px) rem(25px);
     flex: 0 0 auto;
     line-height: inherit;
     font-weight: inherit;
     transition: all .4s;
-    background-color: #362f2f;
+    background-color: #362f2f; 
     &:hover {
       background-color: lighten(#362f2f, 5%);
       box-shadow: 0 0 20px 0 rgba(#000, .2);
@@ -174,9 +183,15 @@
   }
   .prev {
     margin-right: 1.4em;
+    &.disabled {
+    	padding: rem(15px) rem(25px);
+    }
   }
   .next {
     margin-left: 1.4em;
+    &.disabled {
+    	padding: rem(15px) rem(25px);
+    }
   }
   &-number-wrap {
     display: flex;
